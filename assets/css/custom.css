@@ -1,0 +1,175 @@
+/* 
+    Created on : 02.02.2015 00:07
+    Author     : Sebastian Funke
+*/
+
+body{
+    background: #3a5a75  url(../../assets/images/bg/bg.png);
+}
+
+.portrait, .content, #backtotop{
+    box-shadow: 0 0 5px 5px rgba(246,191,1,0.2) !important;
+}
+
+.footer{
+    color: #fec503;
+}
+
+#ie-browser-warning {
+    position:relative; 
+    top:0px; width:100%; 
+    height:40px; 
+    background-color:#fff; 
+    margin-top:0px; 
+    padding:4px; 
+    border-bottom:solid 4px #000066
+}
+
+.bg-line {
+    height: 186px;
+    background: #000000 url(../images/security-header.png) center;
+    background-size: 100% 100%;
+    background-repeat:no-repeat
+}
+
+.bg-line-bottom {
+    height: 15px;
+    background: #000000 url(../images/bg-line-bottom.png) repeat-x center bottom;
+}
+
+.portrait .box-note {
+    background: #fec503;
+    color: #000000;
+    border-color: #000000;
+    box-shadow: 2px 2px 4px #000;
+    /*display: none;*/
+}
+
+.portrait{
+    border-bottom: 20px solid #000000;
+}
+
+.portrait .box-note:after {
+    border-top: 10px solid #000000;
+}
+
+.portrait .portrait-img-area .profile-links a.facebook {
+    background: #fec503;
+}
+.portrait .portrait-img-area .profile-links a.twitter {
+    background: #fec503;
+}
+
+
+.portrait .portrait-img-area .profile-links a.github {
+    left: 65px;
+    background: #fec503;
+    color: white;
+}
+
+
+
+.btn-flat {
+    background: #fec503;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 5px 0 #2D2626;
+}
+
+#navigation .navigation-list li a {
+    background: #000000;
+    font-weight: bold;
+}
+
+#navigation .navigation-list li:nth-child(even) a {
+    background: #474747;
+    font-weight: bold;
+}
+
+#navigation .navigation-list li.active:after {
+    border-top: 10px solid #fec503;
+}
+
+#navigation .navigation-list li:nth-child(even).active:after {
+    border-top: 10px solid #fec503;
+}
+
+#navigation .navigation-list li.active a {
+    font-weight: bold;
+    background-color: #fec503;
+}
+
+
+.title .icn-title {
+    background: #fec503;
+    color: #FFFFFF;
+}
+
+.title .icn-title:after {
+    border-top: 10px solid #fec503;
+}
+
+.form-control:focus {
+    border: 3px solid  #fec503;
+}
+
+.btn-flat.style2 {
+    background: #474747;
+    box-shadow: 0 5px 0 #D7D7D7;
+}
+
+#blog .blog-posts .blog-post .title-post a:hover {
+    color: #fec503;
+}
+
+.imgWrapper .playbtn a {
+    color: #fec503;
+}
+
+.event-content h4{
+    z-index: 5;
+    position: relative;
+}
+
+/*
+.wow {
+   visibility: hidden;
+}
+*/
+
+.item-event.current .date.collapsed{
+    background: #4B6F78 url('../images/collapse.png') no-repeat center bottom !important;
+}
+
+.item-event .date.collapsed{
+    background: #63A4B5 url('../images/collapse.png') no-repeat center bottom !important;
+}
+
+/*
+.item-event.last{
+    background: url('../images/collapse.png') no-repeat center bottom !important;
+}
+*/
+
+#wrapper #backtotop:hover {
+    background: #fec503;
+    color: #000000;
+}
+
+#wrapper #backtotop {
+    background: #000000;
+    color: #FFFFFF;
+}
+
+#projects .control-profolio li.active, #projects .control-profolio li:hover {
+    border: 3px solid #fec503;
+    cursor: pointer;
+}
+
+.portrait .portrait-img-area{
+    margin-top: 20px;
+}
+
+.no-underline:hover{
+    text-decoration: none; 
+}

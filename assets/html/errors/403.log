@@ -1,0 +1,6 @@
+2015-02-05 02:12:08: Attacker: ::1 (User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36) tried to access: /sfunke/sfunke-template/assets/html/blog/ 
+2015-02-05 02:12:21: Attacker: ::1 (User-Agent: Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36) tried to access: /sfunke/sfunke-template/assets/html/blog/ 
+2015-02-05 02:14:27: Attacker: ::1 (User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10) AppleWebKit/600.1.25 (KHTML, like Gecko) Version/8.0 Safari/600.1.25) tried to access: /sfunke/sfunke-template/assets/html/blog/~/ 
+2015-02-05 02:14:40: Attacker: ::1 (User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10) AppleWebKit/600.1.25 (KHTML, like Gecko) Version/8.0 Safari/600.1.25) tried to access: /sfunke/sfunke-template/assets/html/ 
+2015-02-05 02:14:50: Attacker: ::1 (User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10) AppleWebKit/600.1.25 (KHTML, like Gecko) Version/8.0 Safari/600.1.25) tried to access: /sfunke/sfunke-template/assets/html/ 
+2015-02-05 02:14:53: Attacker: ::1 (User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10) AppleWebKit/600.1.25 (KHTML, like Gecko) Version/8.0 Safari/600.1.25) tried to access: /sfunke/sfunke-template/assets/html/ 
