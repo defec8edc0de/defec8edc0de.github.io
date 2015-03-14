@@ -147,9 +147,6 @@ function init_gmap() {
             action: 'init',
             marker: {
                 address: "Darmstadt, Alexanderstraße 39",
-                options: {
-                    icon: new google.maps.MarkerImage("./assets/images/marker.png")
-                }
             },
             map: {
                 options: {
