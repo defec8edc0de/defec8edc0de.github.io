@@ -146,7 +146,7 @@ function init_gmap() {
         $('#map').gmap3({
             action: 'init',
             marker: {
-                address: "Darmstadt, Alexanderstraße 39",
+                address: "Darmstadt, Karlstrasse 83",
             },
             map: {
                 options: {
