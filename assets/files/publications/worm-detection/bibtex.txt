@@ -1,7 +1,0 @@
-﻿@unpublished{SFunke:2013:BehaviourBasedWormDetection,
- author = "Sebastian Funke",
- title = "Verhaltensbasierte Computerwurm-Erkennung",
- year = "2013",
- month = "Feb",
- note = "http://sfunke.pf-control.de/wp-content/uploads/2013/04/Verhaltens-basierte-Computerwurm-Erkennung.pdf"
-}

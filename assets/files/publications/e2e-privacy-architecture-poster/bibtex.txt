@@ -1,0 +1,21 @@
+@inproceedings{	TUD-CS-2015199,
+	author = {Sebastian Funke and J{\"o}rg Daubert and Alexander Wiesmaier and Panayotis
+Kikiras and Max M{\"u}hlh{\"a}user},
+	title = {End-2-End Privacy Architecture for IoT},
+	month = sep,
+	year = {2015},
+	publisher = {IEEE},
+	organization = {IEEE},
+	booktitle = {IEEE Conference on Communications and Network Security (CNS), poster
+proceedings},
+	editor = {IEEE},
+	pages = {705-706},
+	location = {Florence, Italy},
+	isbn = {978-1-4673-7876-5},
+	pubkey = {TUD-CS-2015-1199},
+	research_area = {CASED, Telecooperation},
+	research_sub_area = {- SSI - Area Secure Smart Infrastructures},
+	abstract = {We present an IoT privacy architecture covering End-2-End data handling at
+devices, connections and in the cloud. The system is driven by privacy
+policies negotiated between service providers and consumers.},
+}
