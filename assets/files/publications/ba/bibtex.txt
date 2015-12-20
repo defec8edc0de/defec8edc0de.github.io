@@ -1,0 +1,40 @@
+@mastersthesis{	TUD-CS-2013-0101,
+	author = {Sebastian Funke},
+	title = {Benutzerstudie zur Visualisierung von privatsph{\"a}renkritischen
+Nachrichten in sozialen Netzwerken},
+	month = apr,
+	year = {2013},
+	school = {TU Darmstadt},
+	keywords = {OSN, Privacy},
+	type = {Bachelor Arbeit},
+	pubkey = {TUD-CS-2013-0101},
+	research_area = {CASED, EC SPRIDE, Sicherheit in der Informationstechnik},
+	abstract = {Mit dem Wachstum des Internets, einer idealen Plattform zur
+Selbstpräsentation, wurde der neue virtuelle, soziale Trend
+des „Sharings“ von Inhalten und Informationen jeder Art geboren.
+Soziale Netzwerke, wie das populäre Facebook, welches
+seit 2012 weltweit 978 Millionen aktive Benutzer zählt [3], ermöglichen
+die virtuelle Vernetzung mit verschiedenen
+sozialen Gruppen wie Arbeit, Freunden und vielen mehr sowie das Teilen von
+vielschichtigen Daten mit diesen Gruppen
+bzw. Netzwerken. Nutzer solcher Dienste fallen immer häufiger in die Falle
+der unbeabsichtigten Veröffentlichung privater
+Daten und bedauern häufig das Veröffentlichen von Inhalten, die nicht nur
+ihre eigene Privatsphäre gefährden. Dieses
+Problem liegt zum einen an dem unbedachten Verhalten der Nutzer [31], zum
+anderen aber auch an den verwirrenden
+und intransparenten Einstellungs- und Kommunikationsmöglichkeiten in den
+sozialen Netzwerken [11].
+Diese Studie beschäftigt sich mit den Fragen, wie die Privatsphäre von
+Benutzern sozialer Netzwerke besser geschützt
+werden kann und wie Facebook Nutzer kritische Statusnachrichten bewerten.
+Dazu nahmen 252 unterschiedliche Teilnehmer
+an einer interaktiven Online-Studie teil, um das Verhalten von Personen,
+bei der Veröffentlichung privatsphärenkritischer
+Statusnachrichten, zu untersuchen. Weiterhin wird ein Ansatz zur Analyse
+und Visualisierung kritischer Begriffe
+während des Schreibens von Statusnachrichten vorgestellt sowie als Mockup
+in der Online-Studie mit verschiedenen
+Statusnachrichten getestet und evaluiert.},
+	pdf = {fileadmin/user_upload/Group_SIT/Publications/Thesis/2013/BA_Sebastian_Funke_-_Benutzerstudie_Visualisierung_priv_kritische_Nachrichten_in_OSN.pdf},
+}
