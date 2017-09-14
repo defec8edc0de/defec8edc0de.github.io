@@ -1,0 +1,6 @@
+@article{funke2017e2eprivatsphaere,
+  title={IoT Architektur zum Schutz von Privatsph{\"a}re Ende-zu-Ende},
+  author={Funke, Sebastian},
+  journal={DA-CH Security},
+  year={2017}
+}
