@@ -1,0 +1,8 @@
+@inproceedings{funke2017constrained,
+  title={Constrained PET Composition for Measuring Enforced Privacy},
+  author={Funke, Sebastian and Wiesmaier, Alexander and Daubert, J{\"o}rg},
+  booktitle={Proceedings of the 12th International Conference on Availability, Reliability and Security},
+  pages={16},
+  year={2017},
+  organization={ACM}
+}
