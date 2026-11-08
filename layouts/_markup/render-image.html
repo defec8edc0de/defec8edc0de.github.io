@@ -1,0 +1,11 @@
+{{- $u := urls.Parse .Destination -}}
+{{- $res := "" -}}
+{{- if not $u.Scheme -}}{{- $res = .PageInner.Resources.Get $u.Path -}}{{- end -}}
+{{- if and $res (in (slice "image/jpeg" "image/png" "image/webp") $res.MediaType.Type) -}}
+<figure class="md-figure">
+  {{ partial "img.html" (dict "res" $res "widths" (slice 480 800 1200 1600) "sizes" "(min-width: 48rem) 44rem, 100vw" "alt" .PlainText) }}
+  {{- with .Title }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>
+{{- else -}}
+<img src="{{ .Destination | safeURL }}" alt="{{ .PlainText }}"{{ with .Title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+{{- end -}}

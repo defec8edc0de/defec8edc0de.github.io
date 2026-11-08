@@ -1,0 +1,65 @@
+# Publications, newest first. Files live under static/assets/files/publications/ (old URLs kept).
+- kind: { en: Paper, de: Paper }
+  title: IoT Architektur zum Schutz von Privatsphäre Ende-zu-Ende
+  authors: Sebastian Funke
+  venue: D.A.CH Security 2017
+  date: 2017-09
+  lang: de
+  url: https://www.syssec.at/ds17_programm/
+  bib: /assets/files/publications/dach/bibtex.txt
+- kind: { en: Paper, de: Paper }
+  title: Constrained PET Composition for Measuring Enforced Privacy
+  authors: Sebastian Funke, Alexander Wiesmaier, Jörg Daubert
+  venue: "12th International Conference on Availability, Reliability and Security (ARES), ACM"
+  date: 2017-09
+  lang: en
+  url: https://dl.acm.org/citation.cfm?id=3098968
+  bib: /assets/files/publications/petcomposition/bibtex.txt
+- kind: { en: Poster, de: Poster }
+  title: End-2-End Privacy Architecture for IoT
+  authors: Sebastian Funke, Jörg Daubert, Alexander Wiesmaier, Panayotis Kikiras, Max Mühlhäuser
+  venue: "IEEE Conference on Communications and Network Security (CNS), poster proceedings, pp. 705–706"
+  date: 2015-09
+  lang: en
+  url: http://ieeexplore.ieee.org/abstract/document/7346895
+  bib: /assets/files/publications/e2e-privacy-architecture-poster/bibtex.txt
+- kind: { en: Seminar paper, de: Seminararbeit }
+  title: Password is Dead – A Survey of Attacks
+  authors: Sebastian Funke
+  venue: TU Darmstadt / CASED
+  date: 2015-09
+  lang: en
+  pdf: /assets/files/publications/password-is-dead/Password_is_Dead-A_Survey_of_Attacks.pdf
+  slides: "/assets/files/publications/password-is-dead/Password%20is%20Dead%20-%20A%20Survey%20of%20Attacks.pptx"
+- kind: { en: Seminar paper, de: Seminararbeit }
+  title: Static Code Analysis in CI
+  authors: Sebastian Funke, Brian Pfretzschner, Hamza Zulfiqar
+  venue: TU Darmstadt / CASED
+  date: 2015-03
+  lang: en
+  pdf: /assets/files/publications/static-code-analysis-in-ci/static_code_analysis_in_ci.pdf
+  slides: /assets/files/publications/static-code-analysis-in-ci/SecDev-Final-Presentation.pptx
+- kind: { en: B.Sc. thesis, de: Bachelorarbeit }
+  title: Benutzerstudie zur Visualisierung von privatsphärenkritischen Nachrichten in sozialen Netzwerken
+  authors: Sebastian Funke, Martin Stopczynski, Prof. Dr. Michael Waidner
+  venue: TU Darmstadt / CASED / EC SPRIDE
+  date: 2013-04
+  lang: de
+  pdf: /assets/files/publications/ba/BA_Sebastian_Funke_-_Benutzerstudie_Visualisierung_priv_kritische_Nachrichten_in_OSN.pdf
+  bib: /assets/files/publications/ba/bibtex.txt
+- kind: { en: Seminar paper, de: Seminararbeit }
+  title: Verhaltensbasierte Computerwurm-Erkennung
+  authors: Sebastian Funke
+  venue: TU Darmstadt / CASED
+  date: 2013-02
+  lang: de
+  pdf: /assets/files/publications/worm-detection/Verhaltens-basierte-Computerwurm-Erkennung.pdf
+  slides: /assets/files/publications/worm-detection/Verhaltens-basierte-Computerwurm-Erkennung.pptx
+- kind: { en: Seminar paper, de: Seminararbeit }
+  title: "HTML5: Eine Sicherheitsanalyse"
+  authors: Sebastian Funke
+  venue: TU Darmstadt / CASED
+  date: 2012-07
+  lang: de
+  pdf: /assets/files/publications/html5-security/HTML5_Eine_Sicherheitsanalyse.pdf
+  slides: /assets/files/publications/html5-security/HTML5-Sicherheitsanalyse.pptx

@@ -1,0 +1,27 @@
+{{ define "main" }}
+<article class="wrap page">
+  <header class="page-head">
+    <p class="eyebrow mono">~/papers</p>
+    <h1 data-decode>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+  </header>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  <ol class="pub-list" role="list">
+    {{- range hugo.Data.publications }}
+    <li class="pub" data-reveal>
+      <p class="post-meta mono">{{ .date }} · {{ partial "tr.html" .kind }}{{ if ne .lang site.Language.Lang }} · <span lang="{{ .lang }}">{{ upper .lang }}</span>{{ end }}</p>
+      <h2 class="pub-title" lang="{{ .lang }}">{{ with .url }}<a href="{{ . }}" rel="noopener noreferrer">{{ end }}{{ .title }}{{ with .url }} <span class="ext" aria-hidden="true">↗</span></a>{{ end }}</h2>
+      <p class="pub-authors">{{ .authors }}</p>
+      <p class="pub-venue muted">{{ .venue }}</p>
+      {{- if or .pdf .slides .bib }}
+      <p class="pub-files mono">
+        {{- with .pdf }}<a href="{{ . }}">{{ i18n "pdf" }}</a>{{ end }}
+        {{- with .slides }}<a href="{{ . }}">{{ i18n "slides" }}</a>{{ end }}
+        {{- with .bib }}<a href="{{ . }}">{{ i18n "bibtex" }}</a>{{ end }}
+      </p>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ol>
+</article>
+{{ end }}

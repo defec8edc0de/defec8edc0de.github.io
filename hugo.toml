@@ -1,0 +1,125 @@
+# defec8edc0.de — Hugo site configuration. See CLAUDE.md before changing anything.
+baseURL = "https://defec8edc0.de/"
+title = "Sebastian Funke"
+copyright = "Sebastian Funke"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = false          # static/robots.txt is hand-written (honeypot rule)
+enableGitInfo = false
+timeZone = "Europe/Berlin"
+disableKinds = []
+summaryLength = 40
+capitalizeListTitles = false
+
+# The encrypted vault lives in vault/ (vault/tw.html, vault/m/, vault/<12hex>/) and is copied into public/vault/
+# by scripts/build.sh, untouched. Hugo never reads it.
+ignoreFiles = ['\.bin$']
+
+[pagination]
+  pagerSize = 20
+
+[taxonomies]
+  tag = "tags"
+
+[permalinks]
+  [permalinks.page]
+    blog = "/blog/:slug/"
+    projects = "/projects/:slug/"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false               # raw HTML in Markdown is dropped (vault-published posts too)
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      [markup.goldmark.parser.attribute]
+        block = false
+        title = false
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.typographer]
+        disable = false
+  [markup.highlight]
+    noClasses = false              # Chroma emits classes; colours come from tokens (CSP: no inline styles)
+    lineNos = false
+    guessSyntax = false
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+
+[outputFormats]
+  [outputFormats.llms]
+    mediaType = "text/plain"
+    baseName = "llms"
+    isPlainText = true
+    notAlternative = true
+
+[outputs]
+  home = ["html", "rss", "json", "llms"]
+  section = ["html", "rss"]
+  page = ["html"]
+  taxonomy = ["html"]
+  term = ["html"]
+
+[minify]
+  minifyOutput = false             # the workflow runs `hugo --minify`
+  [minify.tdewolff.html]
+    keepComments = true            # Phase D canary vector 3 lives in an HTML comment
+    keepWhitespace = false
+    keepDocumentTags = true
+    keepEndTags = true
+    keepQuotes = true
+
+[privacy]
+  [privacy.disqus]
+    disable = true
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.instagram]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+  [privacy.x]
+    disable = true
+  [privacy.youTube]
+    disable = true
+
+[services]
+  [services.rss]
+    limit = 30
+
+[params]
+  author = "Sebastian Funke"
+  handle = "defec8edc0de"
+  careerStart = 2017               # first pentest role (Context IS) -> "N+ years" is computed
+  vaultURL = "/vault/tw.html"
+  # Theme switching: Daylight between dayStart (inclusive) and dayEnd (exclusive), viewer's local time.
+  dayStart = 7
+  dayEnd = 19
+  [params.canaries]
+    enabled = false                # Phase D global kill switch (see data/canaries.yaml)
+  [params.email]
+    user = "sebastian.funke.mail"
+    domain = "gmail.com"
+  [params.pgp]
+    fingerprint = "0x7347FFA9"
+    file = "/assets/files/sebastian.funke.mail-0x7347FFA9-pub.asc"
+
+[languages]
+  [languages.en]
+    locale = "en"
+    label = "English"
+    direction = "ltr"
+    weight = 1
+    [languages.en.params]
+      description = "Senior security analyst at ERNW focused on cloud and Kubernetes security: cloud account and container platform reviews, scenario-based red teaming, offensive Kubernetes trainings."
+  [languages.de]
+    locale = "de"
+    label = "Deutsch"
+    direction = "ltr"
+    weight = 2
+    [languages.de.params]
+      description = "Senior Security Analyst bei ERNW mit Schwerpunkt Cloud- und Kubernetes-Sicherheit: Cloud-Account- und Container-Plattform-Reviews, szenariobasiertes Red Teaming, offensive Kubernetes-Trainings."
+
+[sitemap]
+  changeFreq = "monthly"
+  priority = 0.5

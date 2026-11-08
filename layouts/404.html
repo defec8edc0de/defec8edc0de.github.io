@@ -1,0 +1,11 @@
+{{ define "main" }}
+<section class="wrap page not-found">
+  <p class="eyebrow mono">HTTP/1.1 404 · 0x194</p>
+  <h1 data-decode>{{ i18n "not_found_title" }}</h1>
+  <p class="lead">{{ i18n "not_found_text" }}</p>
+  <pre class="mono muted not-found-trace" aria-hidden="true">$ curl -sI {{ site.BaseURL }}???
+HTTP/1.1 404 Not Found
+x-hint: try ⌘K</pre>
+  <p><a class="btn btn-primary" href="{{ site.Home.RelPermalink }}">{{ i18n "back_home" }}</a></p>
+</section>
+{{ end }}

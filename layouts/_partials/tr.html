@@ -1,0 +1,7 @@
+{{- /* Returns the current-language value of a bilingual {en, de} map; plain values pass through. */ -}}
+{{- $v := . -}}
+{{- $out := $v -}}
+{{- if reflect.IsMap $v -}}
+  {{- $out = or (index $v site.Language.Lang) (index $v "en") "" -}}
+{{- end -}}
+{{- return $out -}}

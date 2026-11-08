@@ -1,0 +1,45 @@
+{{- $tx := hugo.Data.transmissions -}}
+{{- $de := eq site.Language.Lang "de" -}}
+{{- /* Interleave: three quotes, then one whisper. */ -}}
+{{- $items := slice -}}
+{{- $w := 0 -}}
+{{- range $i, $q := $tx.quotes -}}
+  {{- $items = $items | append (dict "kind" "quote" "q" $q) -}}
+  {{- if and (eq (mod (add $i 1) 3) 0) (lt $w (len $tx.whispers)) -}}
+    {{- $items = $items | append (dict "kind" "whisper" "q" (index $tx.whispers $w)) -}}
+    {{- $w = add $w 1 -}}
+  {{- end -}}
+{{- end -}}
+<section class="hero" aria-labelledby="hero-title">
+  <canvas class="hero-canvas" aria-hidden="true" data-hero-canvas></canvas>
+  <div class="hero-vignette" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <p class="hero-kicker mono" aria-hidden="true"><span class="accent">0x</span>DEFEC8EDC0DE<span class="caret"></span></p>
+    <h1 id="hero-title" class="hero-name" data-decode>{{ site.Params.author }}</h1>
+    <p class="hero-role mono">{{ i18n "hero_role" }}</p>
+    <p class="hero-tagline"><span data-decode>{{ i18n "hero_tagline" }}</span>{{ partial "canary/tags.html" "home" }}</p>
+    <div class="hero-cta">
+      {{ with site.GetPage "/projects" }}<a class="btn btn-primary" href="{{ .RelPermalink }}">{{ i18n "hero_cta_work" }}</a>{{ end }}
+      {{ with site.GetPage "/contact" }}<a class="btn btn-ghost" href="{{ .RelPermalink }}">{{ i18n "hero_cta_contact" }}</a>{{ end }}
+    </div>
+    <div class="tx" data-tx aria-live="off">
+      <p class="tx-label mono" aria-hidden="true">&gt; {{ i18n "transmission" }} <span data-tx-n>01</span>/{{ printf "%02d" (len $items) }}</p>
+      <ol class="tx-list" role="list">
+        {{- range $i, $it := $items }}
+        <li class="tx-item tx-{{ $it.kind }}"{{ if gt $i 0 }} hidden{{ end }}>
+          {{- if eq $it.kind "quote" }}
+          <figure>
+            <blockquote lang="en"><p>“{{ $it.q.text }}”</p></blockquote>
+            {{- if $de }}<p class="tx-de" lang="de">„{{ $it.q.de }}“</p>{{ end }}
+            <figcaption class="mono">— {{ $it.q.author }}{{ with $it.q.source }}, <cite>{{ . }}</cite>{{ end }}{{ with $it.q.year }}, {{ . }}{{ end }}</figcaption>
+          </figure>
+          {{- else }}
+          <p class="tx-whisper mono">{{ index $it.q site.Language.Lang }}</p>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ol>
+    </div>
+  </div>
+  <a class="hero-scroll mono" href="#cloud" aria-label="{{ i18n "cloud_title" }}"><span aria-hidden="true">↓</span></a>
+</section>

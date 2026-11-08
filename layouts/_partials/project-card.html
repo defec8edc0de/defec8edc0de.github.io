@@ -1,0 +1,13 @@
+{{- $p := .page -}}
+<article class="project-card card{{ if .big }} is-big{{ end }}" data-reveal>
+  {{- with $p.Resources.GetMatch "cover.*" }}
+  <a class="project-cover" href="{{ $p.RelPermalink }}" tabindex="-1" aria-hidden="true">
+    {{ partial "img.html" (dict "res" . "widths" (slice 400 720 1080) "fill" "16x9" "sizes" "(min-width: 60rem) 34rem, 100vw" "alt" "") }}
+  </a>
+  {{- end }}
+  <div class="project-body">
+    <p class="post-meta mono">{{ $p.Date.Format "2006" }}{{ with $p.Params.tags }} · {{ delimit (first 3 .) " · " }}{{ end }}</p>
+    <h3 class="card-title"><a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a></h3>
+    <p>{{ $p.Description | default $p.Summary | plainify | truncate 200 }}</p>
+  </div>
+</article>

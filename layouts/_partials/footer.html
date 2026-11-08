@@ -1,0 +1,20 @@
+{{- $legal := site.GetPage "/impressum" -}}
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-id">
+      <p class="mono footer-handle"><span class="accent">0x</span>defec8edc0de</p>
+      <p class="muted">© {{ now.Year }} {{ site.Params.author }} · {{ i18n "footer_source" }}</p>
+    </div>
+    <ul class="footer-links" aria-label="{{ i18n "contact_profiles" }}">
+      {{- range hugo.Data.socials }}
+      <li><a href="{{ .url }}" rel="me noopener noreferrer">{{ .label }}</a></li>
+      {{- end }}
+      {{- with site.Home.OutputFormats.Get "rss" }}<li><a href="{{ .RelPermalink }}">RSS</a></li>{{ end }}
+      {{- with $legal }}<li><a href="{{ .RelPermalink }}">{{ i18n "footer_legal" }}</a></li>{{ end }}
+    </ul>
+    <a class="vault-link" href="{{ site.Params.vaultURL }}" data-unlock aria-label="{{ i18n "vault_label" }}" title="{{ i18n "vault_label" }}">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="16" height="16"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+    </a>
+  </div>
+  {{ partial "canary/hidden.html" . }}
+</footer>

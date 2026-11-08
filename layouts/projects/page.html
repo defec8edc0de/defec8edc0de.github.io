@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="wrap page project">
+  <header class="page-head">
+    <p class="eyebrow mono">~/work/{{ .File.ContentBaseName | default .Slug }}{{ with .File }}{{ end }}</p>
+    <h1 data-decode>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    <ul class="project-links" role="list">
+      {{- with .Params.repo }}<li><a class="btn btn-ghost" href="{{ . }}" rel="noopener noreferrer">{{ i18n "project_repo" }} ↗</a></li>{{ end }}
+      {{- with .Params.site }}<li><a class="btn btn-ghost" href="{{ . }}" rel="noopener noreferrer">{{ i18n "project_site" }} ↗</a></li>{{ end }}
+      {{- with .Params.archive }}<li><a class="btn btn-ghost" href="{{ . }}" rel="noopener noreferrer">{{ i18n "project_archived" }} ↗</a></li>{{ end }}
+    </ul>
+    {{ with .GetTerms "tags" }}<ul class="tag-row" role="list" aria-label="{{ i18n "tags" }}">{{ range . }}<li><a class="tag" href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a></li>{{ end }}</ul>{{ end }}
+  </header>
+  {{- if not (.HasShortcode "cast") }}{{ with .Resources.GetMatch "cover.*" }}
+  <figure class="project-hero">{{ partial "img.html" (dict "res" . "widths" (slice 640 960 1280) "sizes" "(min-width: 72rem) 68rem, 100vw" "alt" "" "eager" true) }}</figure>
+  {{- end }}{{ end }}
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

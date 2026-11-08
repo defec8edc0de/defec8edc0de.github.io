@@ -1,0 +1,22 @@
+{{- /* Search index for the ⌘K palette (one per language). */ -}}
+{{- $items := slice -}}
+{{- range where site.RegularPages "Params.noindex" "!=" true -}}
+  {{- if ne .Layout "honeypot" -}}
+  {{- $items = $items | append (dict "t" .Title "u" .RelPermalink "s" (.Section | default "page") "d" (.Description | default .Summary | plainify | replaceRE `\s#(\s|$)` " " | truncate 160) "k" (delimit (.Params.tags | default slice) " ")) -}}
+  {{- end -}}
+{{- end -}}
+{{- range site.Sections -}}
+  {{- $items = $items | append (dict "t" .Title "u" .RelPermalink "s" "section" "d" (.Description | default "" | plainify) "k" "") -}}
+{{- end -}}
+{{- range hugo.Data.external_posts.posts -}}
+  {{- $items = $items | append (dict "t" .title "u" .url "s" .site "d" (partial "tr.html" .summary | truncate 160) "k" (delimit .tags " ") "x" true) -}}
+{{- end -}}
+{{- range hugo.Data.trainings -}}
+  {{- $items = $items | append (dict "t" (printf "%s · %s" .title .provider) "u" .url "s" "training" "d" (partial "tr.html" .summary | truncate 160) "k" "kubernetes k8s training" "x" true) -}}
+{{- end -}}
+{{- $plat := slice -}}
+{{- range hugo.Data.platforms.groups }}{{ range .items }}{{ $plat = $plat | append . }}{{ end }}{{ end -}}
+{{- $items = $items | append (dict "t" (i18n "cloud_title") "u" (printf "%s#cloud" site.Home.RelPermalink) "s" "focus" "d" (delimit $plat ", ") "k" (delimit $plat " ")) -}}
+{{- $out := dict "items" $items -}}
+{{- with partial "canary/pick.html" (dict "vector" "feed" "page" "rss+search") -}}{{- $out = merge $out (dict "note" .) -}}{{- end -}}
+{{- $out | jsonify -}}

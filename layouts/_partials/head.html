@@ -1,0 +1,43 @@
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="{{ partial "csp.html" . }}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0a141e">
+{{- $desc := or .Description (cond .IsHome site.Params.description (or .Summary site.Params.description)) | plainify | replaceRE `\s#(\s|$)` " " | truncate 180 }}
+{{- $title := cond .IsHome (printf "%s — %s" site.Title (i18n "hero_role")) (printf "%s · %s" .Title site.Title) }}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $desc }}">
+<meta name="author" content="{{ site.Params.author }}">
+{{- if or (eq .Layout "honeypot") .Params.noindex }}
+<meta name="robots" content="noindex, nofollow">
+{{- end }}
+<link rel="canonical" href="{{ .Permalink }}">
+{{- if not (eq .Layout "honeypot") }}
+{{- range .AllTranslations }}
+<link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+{{- end }}
+{{- with .AllTranslations }}{{ range first 1 (where . "Language.Lang" "en") }}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{- end }}{{ end }}
+{{- end }}
+<meta property="og:type" content="{{ cond .IsPage "article" "website" }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="{{ cond (eq site.Language.Lang "de") "de_DE" "en_GB" }}">
+{{- with .OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">
+{{- else }}{{ with site.Home.OutputFormats.Get "rss" }}
+<link rel="alternate" type="application/rss+xml" href="{{ .RelPermalink }}" title="{{ site.Title }}">
+{{- end }}{{ end }}
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/atkinson-hyperlegible-next-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/jetbrains-mono-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+{{- $init := resources.Get "js/theme-init.js" | minify | fingerprint "sha384" }}
+<script src="{{ $init.RelPermalink }}" integrity="{{ $init.Data.Integrity }}"></script>
+{{- $tokens := resources.Get "css/tokens.css" | resources.ExecuteAsTemplate "css/tokens.css" site }}
+{{- $css := slice $tokens (resources.Get "css/main.css") (resources.Get "css/syntax.css") | resources.Concat "css/site.css" | minify | fingerprint "sha384" }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

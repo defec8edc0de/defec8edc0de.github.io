@@ -1,0 +1,42 @@
+{{- /* Trainings from data/trainings.yaml, upcoming first (computed at build time). Args: limit (0 = all), split (bool: group headings). */ -}}
+{{- $now := now -}}
+{{- $up := slice -}}{{- $past := slice -}}
+{{- range hugo.Data.trainings -}}
+  {{- $isUp := false -}}
+  {{- if .start -}}
+    {{- $isUp = (time.AsTime (.end | default .start)).After $now -}}
+  {{- else -}}
+    {{- $isUp = gt (int .year) $now.Year -}}
+  {{- end -}}
+  {{- $e := dict "t" . "up" $isUp -}}
+  {{- if $isUp }}{{ $up = $up | append $e }}{{ else }}{{ $past = $past | append $e }}{{ end -}}
+{{- end -}}
+{{- $groups := slice (dict "key" "upcoming_runs" "items" $up) (dict "key" "past_runs" "items" $past) -}}
+{{- $limit := .limit | default 0 -}}
+{{- $split := .split | default false -}}
+{{- $shown := 0 -}}
+{{- range $groups }}{{ if and .items (or (eq $limit 0) (lt $shown $limit)) }}
+{{- if $split }}<h2 class="group-title">{{ i18n .key }}</h2>{{ end }}
+<ul class="training-list" role="list">
+  {{- range .items }}
+  {{- if or (eq $limit 0) (lt $shown $limit) }}
+  {{- $shown = add $shown 1 }}
+  {{- $t := .t }}
+  <li class="training card" data-reveal>
+    <p class="post-meta mono">
+      {{- if $t.start }}<time datetime="{{ $t.start }}">{{ time.AsTime $t.start | time.Format ":date_medium" }}</time>
+        {{- with $t.end }}{{ if ne (string .) (string $t.start) }} – <time datetime="{{ . }}">{{ time.AsTime . | time.Format ":date_medium" }}</time>{{ end }}{{ end }}
+      {{- else }}{{ $t.year }}{{ end }} · {{ $t.provider }}
+    </p>
+    <h3 class="card-title"><a href="{{ $t.url }}" rel="noopener noreferrer">{{ $t.title }} <span class="ext" aria-hidden="true">↗</span></a></h3>
+    <p class="training-tags">
+      {{- if .up }}<span class="badge badge-up">{{ i18n "upcoming" }}</span>{{ else }}<span class="badge badge-past">{{ i18n "past" }}</span>{{ end }}
+      {{- with $t.badge }} <span class="badge badge-accent">{{ partial "tr.html" . }}</span>{{ end }}
+      <span class="muted"> {{ partial "tr.html" $t.format }} · {{ partial "tr.html" $t.role }}</span>
+    </p>
+    <p>{{ partial "tr.html" $t.summary }}</p>
+  </li>
+  {{- end }}
+  {{- end }}
+</ul>
+{{- end }}{{ end -}}

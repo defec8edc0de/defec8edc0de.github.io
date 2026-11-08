@@ -1,0 +1,107 @@
+{{ define "main" }}
+{{- $p := hugo.Data.platforms }}
+{{- $s := hugo.Data.skills }}
+<article class="wrap page resume">
+  <header class="page-head resume-head">
+    <div>
+      <p class="eyebrow mono">~/cv</p>
+      <h1 data-decode>{{ .Title }}</h1>
+      {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    </div>
+    <button type="button" class="btn btn-ghost print-btn" data-print hidden>{{ i18n "print_cv" }}</button>
+  </header>
+
+  {{ with .Content }}<div class="prose resume-summary">{{ . }}</div>{{ end }}
+
+  <section class="resume-block" aria-labelledby="r-platforms">
+    <h2 id="r-platforms">{{ i18n "platforms" }}</h2>
+    <div class="platform-groups">
+      {{- range $p.groups }}
+      <div class="platform-group">
+        <h3 class="mono muted">{{ partial "tr.html" .label }}</h3>
+        <ul class="chips" role="list">{{ range .items }}<li class="chip">{{ . }}</li>{{ end }}<li class="chip chip-muted">{{ partial "tr.html" $p.more }}</li></ul>
+      </div>
+      {{- end }}
+    </div>
+  </section>
+
+  <section class="resume-block" aria-labelledby="r-exp">
+    <h2 id="r-exp">{{ i18n "experience" }}</h2>
+    <ol class="timeline" role="list">
+      {{- range $i, $e := hugo.Data.experience }}
+      <li class="tl-item{{ if not .to }} is-current{{ end }}">
+        <details{{ if lt $i 2 }} open{{ end }}>
+          <summary>
+            {{- with .logo }}{{ with resources.Get (printf "img/institutions/%s" .) }}{{ $l := .Fit "112x112 webp q85" }}<img class="tl-logo" src="{{ $l.RelPermalink }}" width="48" height="48" alt="" loading="lazy">{{ end }}{{ else }}<span class="tl-logo tl-logo-empty" aria-hidden="true"></span>{{ end }}
+            <span class="tl-when mono">{{ .from }}–{{ with .to }}{{ . }}{{ else }}{{ i18n "present" }}{{ end }}</span>
+            <span class="tl-role">{{ partial "tr.html" .role }}</span>
+            <span class="tl-org">{{ .org }} · {{ partial "tr.html" .place }}</span>
+          </summary>
+          <div class="tl-body">
+            <p>{{ partial "tr.html" .summary }}</p>
+            {{- with .details }}<ul>{{ range (partial "tr.html" .) }}<li>{{ . }}</li>{{ end }}</ul>{{ end }}
+            {{- with .note }}<p class="muted">{{ partial "tr.html" . }}</p>{{ end }}
+            {{- with .url }}<p class="mono"><a href="{{ . }}" rel="noopener noreferrer">{{ replaceRE "^https?://(www\\.)?([^/]+).*$" "$2" . }} ↗</a></p>{{ end }}
+          </div>
+        </details>
+      </li>
+      {{- end }}
+    </ol>
+  </section>
+
+  <section class="resume-block" aria-labelledby="r-edu">
+    <h2 id="r-edu">{{ i18n "education" }}</h2>
+    <ol class="timeline" role="list">
+      {{- range hugo.Data.education }}
+      <li class="tl-item">
+        <details>
+          <summary>
+            {{- with .logo }}{{ with resources.Get (printf "img/institutions/%s" .) }}{{ $l := .Fit "112x112 webp q85" }}<img class="tl-logo" src="{{ $l.RelPermalink }}" width="48" height="48" alt="" loading="lazy">{{ end }}{{ else }}<span class="tl-logo tl-logo-empty" aria-hidden="true"></span>{{ end }}
+            <span class="tl-when mono">{{ .from }}–{{ .to }}</span>
+            <span class="tl-role">{{ partial "tr.html" .degree }}</span>
+            <span class="tl-org">{{ .org }}</span>
+          </summary>
+          <div class="tl-body"><p>{{ partial "tr.html" .summary }}</p></div>
+        </details>
+      </li>
+      {{- end }}
+    </ol>
+  </section>
+
+  <section class="resume-block" aria-labelledby="r-skills">
+    <h2 id="r-skills">{{ i18n "skills" }}</h2>
+    <div class="platform-groups">
+      {{- range $s.now }}
+      <div class="platform-group">
+        <h3 class="mono muted">{{ partial "tr.html" .label }}</h3>
+        <ul class="chips" role="list">{{ range .items }}<li class="chip">{{ . }}</li>{{ end }}</ul>
+      </div>
+      {{- end }}
+      <div class="platform-group">
+        <h3 class="mono muted">{{ i18n "languages" }}</h3>
+        <ul class="chips" role="list">{{ range $s.languages }}<li class="chip">{{ partial "tr.html" .name }} <span class="muted">· {{ partial "tr.html" .level }}</span></li>{{ end }}</ul>
+      </div>
+    </div>
+    <details class="earlier">
+      <summary class="mono">{{ i18n "skills_earlier" }}</summary>
+      <div class="platform-groups">
+        {{- range $s.earlier }}
+        <div class="platform-group">
+          <h3 class="mono muted">{{ partial "tr.html" .label }}</h3>
+          <ul class="chips" role="list">{{ range .items }}<li class="chip chip-muted">{{ . }}</li>{{ end }}</ul>
+        </div>
+        {{- end }}
+      </div>
+    </details>
+  </section>
+
+  <section class="resume-block" aria-labelledby="r-more">
+    <h2 id="r-more" class="visually-hidden">{{ i18n "nav_publications" }} · {{ i18n "nav_teaching" }}</h2>
+    <p class="resume-links">
+      {{ with site.GetPage "/publications" }}<a class="btn btn-ghost" href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+      {{ with site.GetPage "/teaching" }}<a class="btn btn-ghost" href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}
+    </p>
+    <p class="muted">{{ i18n "cv_note" }}</p>
+  </section>
+</article>
+{{ end }}

@@ -1,0 +1,2 @@
+{{- /* Phase D vector 1 inline: {{< canary page="about" >}} — renders nothing unless armed. */ -}}
+{{- partial "canary/tags.html" (.Get "page" | default "about") -}}

@@ -1,0 +1,14 @@
+# Posts published elsewhere; merged into the Writing list and marked as external.
+authorPages:
+  - site: Insinuator
+    url: https://insinuator.net/authors/sebastian-funke/
+posts:
+  - title: Puppet Assessment Techniques
+    site: Insinuator
+    date: 2020-09-09
+    url: https://insinuator.net/2020/09/puppet-assessment-techniques/
+    lang: en
+    tags: [puppet, infrastructure, pentest]
+    summary:
+      en: "Black- and whitebox techniques for assessing a Puppet Enterprise landscape: exposed status and Jolokia endpoints, CSR auto-signing, client-certificate header bypasses behind TLS termination, mass command execution after compromising the Puppet master, and an audit checklist including CVE-2020-7942."
+      de: "Black- und Whitebox-Techniken für die Prüfung einer Puppet-Enterprise-Landschaft: exponierte Status- und Jolokia-Endpunkte, automatisches Signieren von CSRs, Umgehung über Client-Zertifikat-Header hinter TLS-Terminierung, Massen-Codeausführung nach Kompromittierung des Puppet-Masters und eine Audit-Checkliste inklusive CVE-2020-7942."

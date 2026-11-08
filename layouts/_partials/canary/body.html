@@ -1,0 +1,4 @@
+{{- /* Phase D vector 3: HTML comment (needs minify keepComments = true). "--" is neutralised so the comment cannot break out. */ -}}
+{{- with partial "canary/pick.html" (dict "vector" "comment" "page" "all" "lang" "all") -}}
+{{ printf "<!-- %s -->" (replace (replace . "--" "-") ">" "") | safeHTML }}
+{{- end -}}

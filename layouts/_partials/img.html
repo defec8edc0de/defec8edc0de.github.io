@@ -1,0 +1,28 @@
+{{- /*
+  Responsive WebP image. Args: res (image resource), widths (slice of ints), sizes, alt, class, eager (bool), fill ("WxH" crop, optional).
+*/ -}}
+{{- $res := .res -}}
+{{- $widths := .widths | default (slice 480 800 1200) -}}
+{{- $srcset := slice -}}
+{{- $last := false -}}
+{{- range $widths -}}
+  {{- if le . $res.Width -}}
+    {{- $img := "" -}}
+    {{- if $.fill -}}
+      {{- $parts := split $.fill "x" -}}
+      {{- $h := div (mul . (int (index $parts 1))) (int (index $parts 0)) -}}
+      {{- $img = $res.Fill (printf "%dx%d webp q78 Smart" . $h) -}}
+    {{- else -}}
+      {{- $img = $res.Resize (printf "%dx webp q78" .) -}}
+    {{- end -}}
+    {{- $srcset = $srcset | append (printf "%s %dw" $img.RelPermalink $img.Width) -}}
+    {{- $last = $img -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $last -}}
+  {{- $last = $res.Resize (printf "%dx webp q78" $res.Width) -}}
+  {{- $srcset = slice (printf "%s %dw" $last.RelPermalink $last.Width) -}}
+{{- end -}}
+<img src="{{ $last.RelPermalink }}" srcset="{{ delimit $srcset ", " }}" sizes="{{ .sizes | default "100vw" }}"
+  width="{{ $last.Width }}" height="{{ $last.Height }}" alt="{{ .alt }}"{{ with .class }} class="{{ . }}"{{ end }}
+  {{ if .eager }}fetchpriority="high"{{ else }}loading="lazy"{{ end }} decoding="async">

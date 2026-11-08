@@ -1,0 +1,41 @@
+{{- $p := hugo.Data.platforms -}}
+{{- $years := sub now.Year site.Params.careerStart -}}
+<section class="cloud wrap section" id="cloud" aria-labelledby="cloud-title">
+  <header class="section-head">
+    <p class="eyebrow mono"><span class="accent">01</span> · focus</p>
+    <h2 id="cloud-title">{{ i18n "cloud_title" }}</h2>
+    <p class="lead">{{ i18n "cloud_lead" }}</p>
+    <p class="mono muted cloud-years">{{ i18n "cloud_years" (dict "Count" $years) }}</p>
+  </header>
+  <div class="cloud-grid">
+    <div class="term" data-reveal>
+      <div class="term-bar" aria-hidden="true"><span class="term-dots"><i></i><i></i><i></i></span><span class="mono">~/ernw/cloud-security</span></div>
+      <p class="term-cmd mono" aria-hidden="true"><span class="accent">$</span> {{ i18n "cloud_cmd" }}</p>
+      <div class="term-scroll"><table class="term-table">
+        <caption class="visually-hidden">{{ i18n "platforms" }}</caption>
+        <thead><tr><th scope="col">{{ i18n "col_platform" }}</th><th scope="col">{{ i18n "col_category" }}</th><th scope="col">{{ i18n "col_review" }}</th></tr></thead>
+        <tbody>
+          {{- range $g := $p.groups }}
+          {{- range $g.items }}
+          <tr data-row>
+            <th scope="row">{{ . }}</th>
+            <td class="muted">{{ $g.id }}</td>
+            <td><span class="ok" aria-hidden="true">✓</span> {{ cond (eq $g.kind "k8s") (i18n "review_k8s") (i18n "review_cloud") }}</td>
+          </tr>
+          {{- end }}
+          {{- end }}
+        </tbody>
+      </table></div>
+      <p class="term-more mono muted">{{ partial "tr.html" $p.more }}<span class="caret"></span></p>
+    </div>
+    <ul class="review-cards" role="list">
+      {{- range $p.reviews }}
+      <li class="card" data-reveal>
+        <h3 class="card-title">{{ partial "tr.html" .title }}</h3>
+        <p>{{ partial "tr.html" .text }}</p>
+        {{- with .link }}{{ with site.GetPage . }}<a class="card-link" href="{{ .RelPermalink }}">{{ .Title }} →</a>{{ end }}{{ end }}
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+</section>

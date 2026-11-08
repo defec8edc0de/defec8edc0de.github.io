@@ -1,0 +1,11 @@
+{{ define "main" }}
+<article class="wrap page">
+  <header class="page-head">
+    <p class="eyebrow mono">~/teach</p>
+    <h1 data-decode>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+  </header>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  {{ partial "training-list.html" (dict "limit" 0 "split" true) }}
+</article>
+{{ end }}

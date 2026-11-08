@@ -1,0 +1,30 @@
+{{- /*
+  Content-Security-Policy for this page (meta tag; GitHub Pages cannot send headers).
+  - Pages with an asciinema cast need 'wasm-unsafe-eval' (the player's terminal emulator is WebAssembly).
+  - The honeypot page (Phase D) may load exactly one canary image from its token host.
+*/ -}}
+{{- $script := slice "'self'" -}}
+{{- if .HasShortcode "cast" -}}{{- $script = $script | append "'wasm-unsafe-eval'" -}}{{- end -}}
+{{- $img := slice "'self'" "data:" -}}
+{{- if and site.Params.canaries.enabled (eq .Layout "honeypot") -}}
+  {{- range hugo.Data.canaries -}}
+    {{- if and .enabled .url (eq .vector "honeypot") -}}
+      {{- with urls.Parse .url -}}{{- $img = $img | append (printf "%s://%s" .Scheme .Host) -}}{{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $p := slice
+  "default-src 'self'"
+  (printf "script-src %s" (delimit $script " "))
+  "style-src 'self'"
+  (printf "img-src %s" (delimit $img " "))
+  "font-src 'self'"
+  "connect-src 'self'"
+  "media-src 'self'"
+  "worker-src 'self' blob:"
+  "object-src 'none'"
+  "base-uri 'none'"
+  "form-action 'none'"
+  "upgrade-insecure-requests"
+-}}
+{{- return (delimit $p "; ") -}}

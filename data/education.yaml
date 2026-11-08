@@ -1,0 +1,33 @@
+- org: TU Darmstadt
+  url: https://www.tu-darmstadt.de/
+  logo: tud.jpg
+  from: 2013
+  to: 2017
+  degree:
+    en: M.Sc. IT Security
+    de: M.Sc. IT-Sicherheit
+  summary:
+    en: "Master's programme in IT security. Thesis: an end-to-end privacy architecture for the Internet of Things (with AGT International)."
+    de: "Masterstudium IT-Sicherheit. Abschlussarbeit: eine Ende-zu-Ende-Privacy-Architektur für das Internet der Dinge (mit AGT International)."
+- org: TU Darmstadt
+  url: https://www.tu-darmstadt.de/
+  logo: tud.jpg
+  from: 2010
+  to: 2013
+  degree:
+    en: B.Sc. Computer Science
+    de: B.Sc. Informatik
+  summary:
+    en: "Graduated after six semesters. Thesis: a user study on visualising privacy-critical messages in online social networks."
+    de: "Abschluss nach sechs Semestern. Abschlussarbeit: eine Nutzerstudie zur Visualisierung privatsphärekritischer Nachrichten in sozialen Netzwerken."
+- org: Berufliches Gymnasium Mühlhausen
+  url: null
+  logo: null
+  from: 2005
+  to: 2008
+  degree:
+    en: Technical Assistant for Computer Science, Abitur
+    de: Informationstechnischer Assistent, Abitur
+  summary:
+    en: "Higher-education entrance qualification with majors in data processing and mathematics, plus the state-certified technical assistant qualification."
+    de: "Allgemeine Hochschulreife mit Schwerpunkt Datenverarbeitung und Mathematik sowie Abschluss als staatlich geprüfter informationstechnischer Assistent."

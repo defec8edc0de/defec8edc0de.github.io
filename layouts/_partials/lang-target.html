@@ -1,0 +1,14 @@
+{{- /* The same page in the other language, or that language's home page. Returns dict {url, lang, label, short, exact}. */ -}}
+{{- $cur := . -}}
+{{- $other := cond (eq site.Language.Lang "de") "en" "de" -}}
+{{- $url := "" -}}
+{{- $exact := false -}}
+{{- range .Translations -}}
+  {{- if eq .Language.Lang $other -}}{{- $url = .RelPermalink -}}{{- $exact = true -}}{{- end -}}
+{{- end -}}
+{{- if not $url -}}
+  {{- range hugo.Sites -}}
+    {{- if eq .Language.Lang $other -}}{{- $url = .Home.RelPermalink -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return (dict "url" $url "lang" $other "label" (i18n "lang_switch_label") "short" (i18n "lang_other_short") "exact" $exact) -}}

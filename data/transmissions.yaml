@@ -1,0 +1,49 @@
+# Hero "transmissions". Quotes keep their original English (exact wording + source); `de` is a rendering shown as subtitle.
+# Whispers are the site owner's own lines (translated). Roughly every 4th slot is a whisper.
+quotes:
+  - text: "The enemy knows the system."
+    de: "Der Gegner kennt das System."
+    author: Claude E. Shannon
+    source: "Communication Theory of Secrecy Systems"
+    year: 1949
+  - text: "Cypherpunks write code."
+    de: "Cypherpunks schreiben Code."
+    author: Eric Hughes
+    source: "A Cypherpunk's Manifesto"
+    year: 1993
+  - text: "Privacy is necessary for an open society in the electronic age."
+    de: "Privatsphäre ist für eine offene Gesellschaft im elektronischen Zeitalter notwendig."
+    author: Eric Hughes
+    source: "A Cypherpunk's Manifesto"
+    year: 1993
+  - text: "Attacks always get better; they never get worse."
+    de: "Angriffe werden immer nur besser, niemals schlechter."
+    author: NSA saying
+    source: "popularised by Bruce Schneier"
+    year: null
+  - text: "You can't trust code that you did not totally create yourself."
+    de: "Man kann keinem Code vertrauen, den man nicht vollständig selbst geschrieben hat."
+    author: Ken Thompson
+    source: "Reflections on Trusting Trust"
+    year: 1984
+  - text: "For a successful technology, reality must take precedence over public relations, for nature cannot be fooled."
+    de: "Für eine erfolgreiche Technologie muss die Realität Vorrang vor der Öffentlichkeitsarbeit haben, denn die Natur lässt sich nicht täuschen."
+    author: Richard P. Feynman
+    source: "Rogers Commission Report, Appendix F"
+    year: 1986
+  - text: "The Net interprets censorship as damage and routes around it."
+    de: "Das Netz interpretiert Zensur als Schaden und leitet um sie herum."
+    author: John Gilmore
+    source: "TIME"
+    year: 1993
+whispers:
+  - en: "> found: 1 trust boundary, 0 checks"
+    de: "> gefunden: 1 Vertrauensgrenze, 0 Prüfungen"
+  - en: "> assumption invalidated"
+    de: "> Annahme widerlegt"
+  - en: "> it worked on my machine. so did the exploit."
+    de: "> lief auf meiner Maschine. der Exploit auch."
+  - en: "> kubectl auth can-i '*' '*' → yes"
+    de: "> kubectl auth can-i '*' '*' → yes"
+  - en: "> default credentials: still the default"
+    de: "> Standardpasswort: immer noch Standard"

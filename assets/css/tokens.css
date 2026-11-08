@@ -1,0 +1,29 @@
+/* Generated from data/tokens.yaml — edit the data file, not this template. */
+{{- $t := hugo.Data.tokens }}
+:root {
+{{- range $k, $v := $t.shared }}
+  --{{ $k }}: {{ $v | safeCSS }};
+{{- end }}
+}
+/* Default (no JS): Noir. */
+:root, :root[data-theme="noir"] {
+  color-scheme: dark;
+{{- range $k, $v := $t.noir }}{{ if ne $k "scheme" }}
+  --{{ $k }}: {{ $v | safeCSS }};
+{{- end }}{{ end }}
+}
+/* No JS + OS light preference: Daylight. */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+{{- range $k, $v := $t.daylight }}{{ if ne $k "scheme" }}
+    --{{ $k }}: {{ $v | safeCSS }};
+{{- end }}{{ end }}
+  }
+}
+:root[data-theme="daylight"] {
+  color-scheme: light;
+{{- range $k, $v := $t.daylight }}{{ if ne $k "scheme" }}
+  --{{ $k }}: {{ $v | safeCSS }};
+{{- end }}{{ end }}
+}

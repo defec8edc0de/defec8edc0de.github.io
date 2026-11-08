@@ -1,0 +1,28 @@
+/* Chroma (Hugo highlighting, noClasses=false) mapped to theme tokens --syn-*. */
+.chroma { color: var(--text); background: transparent; }
+.chroma .err { color: var(--syn-err); }
+.chroma .lnt, .chroma .ln { color: var(--muted); margin-right: .8em; user-select: none; }
+.chroma .hl { background: var(--accent-soft); display: block; }
+/* keywords */
+.chroma .k, .chroma .kc, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr, .chroma .nt, .chroma .ow { color: var(--syn-kw); }
+.chroma .kt { color: var(--syn-type); }
+/* names */
+.chroma .na, .chroma .nb, .chroma .bp, .chroma .no { color: var(--syn-type); }
+.chroma .nc, .chroma .nn, .chroma .ne { color: var(--syn-type); font-weight: 600; }
+.chroma .nf, .chroma .fm, .chroma .nd { color: var(--syn-fn); }
+.chroma .nv, .chroma .vc, .chroma .vg, .chroma .vi, .chroma .vm, .chroma .n { color: var(--syn-var); }
+/* literals */
+.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .dl, .chroma .sd, .chroma .s2, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .s1, .chroma .ss { color: var(--syn-str); }
+.chroma .m, .chroma .mb, .chroma .mf, .chroma .mh, .chroma .mi, .chroma .il, .chroma .mo { color: var(--syn-num); }
+/* operators, punctuation */
+.chroma .o, .chroma .p { color: var(--syn-op); }
+/* comments */
+.chroma .c, .chroma .ch, .chroma .cm, .chroma .c1, .chroma .cs, .chroma .cp, .chroma .cpf { color: var(--syn-com); font-style: italic; }
+/* generic (diffs, shell output) */
+.chroma .gd { color: var(--danger); }
+.chroma .gi { color: var(--lime); }
+.chroma .gh, .chroma .gu { color: var(--syn-fn); font-weight: 600; }
+.chroma .gp { color: var(--accent-text); user-select: none; }
+.chroma .go { color: var(--muted); }
+.chroma .ge { font-style: italic; }
+.chroma .gs { font-weight: 700; }

@@ -1,0 +1,11 @@
+/* TEAM */
+  Built by: Sebastian Funke
+  Handle: defec8edc0de
+  From: Heidelberg, Germany
+
+/* SITE */
+  Generator: Hugo (static, built by GitHub Actions)
+  Fonts: Atkinson Hyperlegible Next, JetBrains Mono (self-hosted, OFL)
+  Terminal recordings: asciinema-player (self-hosted, Apache-2.0)
+  Third-party requests: none
+  Cookies: none

@@ -1,0 +1,24 @@
+# Grouped tags, no percentages. "now" groups are shown open; "earlier" sits in a collapsed group.
+now:
+  - label: { en: Offensive security, de: Offensive Sicherheit }
+    items: [Cloud & Kubernetes pentesting, Container escape & isolation, Scenario-based red teaming, Web & API security, Network & infrastructure, Thick clients (.NET, Java), Build & configuration reviews]
+  - label: { en: Engineering, de: Engineering }
+    items: [AI agents & agentic automation, Python, Bash, JavaScript, Linux, Git, kubectl & cloud CLIs]
+  - label: { en: Research interests, de: Forschungsinteressen }
+    items: [Privacy-enhancing technologies, Multi-tenancy, Secure software development, Wireless physical-layer security, Decentralisation]
+earlier:
+  - label: { en: Languages & stacks, de: Sprachen & Stacks }
+    items: [PHP, Java, Delphi/Pascal, C/C++/C#, MySQL, jQuery, HTML & CSS, Visual Basic, Prolog, Verilog/VHDL, IA-32 assembler]
+  - label: { en: Tools, de: Werkzeuge }
+    items: [Joomla, WordPress, Contao, SVN, LaTeX, GIMP, SAP R/3]
+  - label: { en: Methods, de: Methoden }
+    items: [Scrum, RUP, XP, Design & architecture patterns]
+languages:
+  - name: { en: German, de: Deutsch }
+    level: { en: native, de: Muttersprache }
+  - name: { en: English, de: Englisch }
+    level: { en: fluent, de: verhandlungssicher }
+  - name: { en: French, de: Französisch }
+    level: { en: basic, de: Grundkenntnisse }
+  - name: { en: Chinese (Mandarin), de: Chinesisch (Mandarin) }
+    level: { en: basic, de: Grundkenntnisse }

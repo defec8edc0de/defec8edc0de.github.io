@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article class="wrap page">
+  <header class="page-head">
+    {{ with .Params.eyebrow }}<p class="eyebrow mono">{{ . }}</p>{{ end }}
+    <h1 data-decode>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+  </header>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

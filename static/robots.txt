@@ -1,0 +1,6 @@
+# defec8edc0.de
+User-agent: *
+Allow: /
+Disallow: /x/attic/
+
+Sitemap: https://defec8edc0.de/sitemap.xml

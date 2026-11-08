@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="wrap page">
+  <header class="page-head">
+    <p class="eyebrow mono">~/log</p>
+    <h1 data-decode>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+    {{ with .OutputFormats.Get "rss" }}<p class="mono muted"><a href="{{ .RelPermalink }}">{{ i18n "rss" }}</a></p>{{ end }}
+  </header>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  {{ partial "writing-list.html" (dict "limit" 0) }}
+  {{- with hugo.Data.external_posts.authorPages }}
+  <p class="mono muted more-link">{{ range . }}<a href="{{ .url }}" rel="noopener noreferrer">{{ .site }} ↗</a> {{ end }}</p>
+  {{- end }}
+</section>
+{{ end }}

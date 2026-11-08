@@ -1,0 +1,40 @@
+# Trainings. `start`/`end` as YYYY-MM-DD where known; "upcoming" vs "past" is computed at build time.
+- id: troopers26-k8s
+  title: Offensive K8s Security 101
+  provider: TROOPERS26
+  url: https://troopers.de/troopers26/trainings/7z8fka/
+  year: 2026
+  start: null
+  end: null
+  format: { en: "2-day hands-on workshop, Heidelberg", de: "2-tägiger Hands-on-Workshop, Heidelberg" }
+  role: { en: "Co-trainer with Sven Nobis", de: "Co-Trainer mit Sven Nobis" }
+  badge: { en: "fully booked", de: "ausgebucht" }
+  summary:
+    en: "Attack and defend a shared Kubernetes cluster, first through an auditor's eyes, then an attacker's: K8s fundamentals, auditing cluster security, common pitfalls of managed clusters and how clusters get compromised. All exercises run on a shared K3s cluster; the training ends with an attack-and-defence game between participants."
+    de: "Einen gemeinsamen Kubernetes-Cluster angreifen und verteidigen, erst aus Sicht eines Auditors, dann aus Sicht eines Angreifers: K8s-Grundlagen, Audit der Cluster-Sicherheit, typische Fallstricke von Managed Clustern und wie Cluster kompromittiert werden. Alle Übungen laufen auf einem gemeinsamen K3s-Cluster; zum Abschluss treten die Teilnehmenden in einem Attack-&-Defense-Spiel gegeneinander an."
+- id: troopers25-k8s
+  title: Offensive K8s Security 101
+  provider: TROOPERS25
+  url: https://troopers.de/troopers25/trainings/79f37z/
+  year: 2025
+  start: null
+  end: null
+  format: { en: "2-day hands-on workshop, Heidelberg", de: "2-tägiger Hands-on-Workshop, Heidelberg" }
+  role: { en: "Co-trainer with Sven Nobis", de: "Co-Trainer mit Sven Nobis" }
+  badge: null
+  summary:
+    en: "First run of the workshop at TROOPERS: auditing and attacking Kubernetes on a shared K3s cluster, from fundamentals to cluster compromise, ending in an attack-and-defence game."
+    de: "Erste Ausgabe des Workshops bei TROOPERS: Kubernetes auf einem gemeinsamen K3s-Cluster auditieren und angreifen, von den Grundlagen bis zur Cluster-Kompromittierung, mit einem abschließenden Attack-&-Defense-Spiel."
+- id: hmts-2027-05
+  title: Offensive Kubernetes Security 101
+  provider: HM Training Solutions
+  url: https://hm-ts.de/trainer/tutor/sebastian-funke
+  year: 2027
+  start: 2027-05-11
+  end: 2027-05-12
+  format: { en: "Public online training (course M08-27-05)", de: "Offene Online-Schulung (Kurs M08-27-05)" }
+  role: { en: "Trainer", de: "Trainer" }
+  badge: null
+  summary:
+    en: "The public version of the offensive Kubernetes training, bookable through HM Training Solutions."
+    de: "Die offene Variante des offensiven Kubernetes-Trainings, buchbar über HM Training Solutions."

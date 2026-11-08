@@ -1,0 +1,152 @@
+# Work history, newest first. Text fields are bilingual {en, de}. `logo` = assets/img/institutions/<file>.
+- id: ernw
+  org: ERNW Enno Rey Netzwerke GmbH
+  url: https://www.ernw.de
+  logo: ernw.jpg
+  place: { en: Heidelberg, de: Heidelberg }
+  from: 2019          # confirm start year
+  to: null            # current
+  role:
+    en: Senior Security Analyst, Cloud Security Team
+    de: Senior Security Analyst, Cloud-Security-Team
+  summary:
+    en: >-
+      Security assessments and penetration tests of large enterprise environments, these days mostly cloud
+      and Kubernetes. I'm part of ERNW's cloud security team and have reviewed a lot of cloud accounts and
+      container platforms, for several DAX 10 companies among others. I've led scenario-based red-team
+      assessments of cloud and container platforms and co-teach Offensive Kubernetes Security 101.
+    de: >-
+      Sicherheitsanalysen und Penetrationstests großer Unternehmensumgebungen, inzwischen meistens Cloud und
+      Kubernetes. Ich gehöre zum Cloud-Security-Team von ERNW und habe sehr viele Cloud-Accounts und
+      Container-Plattformen geprüft, unter anderem für mehrere DAX-10-Unternehmen. Ich habe szenariobasierte
+      Red-Team-Assessments von Cloud- und Container-Plattformen geleitet und gebe Offensive Kubernetes Security 101 mit.
+  details:
+    en:
+      - "Senior Security Analyst since November 2026, before that security analyst and penetration tester."
+      - "Pentests of networks, desktop and web applications, containers and multi-cloud setups."
+      - "Led scenario-based red-team assessments of cloud and container platforms."
+      - "Research on automating assessments in Azure and Kubernetes and on improving our pentest techniques."
+      - "Heavy user of AI agents, mostly to build automations for my assessments."
+      - "Trainer at TROOPERS and HM Training Solutions (Offensive Kubernetes Security 101)."
+    de:
+      - "Seit November 2026 Senior Security Analyst, davor Security Analyst und Penetrationstester."
+      - "Pentests von Netzwerken, Desktop- und Webanwendungen, Containern und Multi-Cloud-Umgebungen."
+      - "Leitung szenariobasierter Red-Team-Assessments von Cloud- und Container-Plattformen."
+      - "Forschung zur Automatisierung von Assessments in Azure und Kubernetes und zur Verbesserung unserer Pentest-Techniken."
+      - "Nutze KI-Agenten intensiv, vor allem für Automatisierungen in meinen Assessments."
+      - "Trainer bei TROOPERS und HM Training Solutions (Offensive Kubernetes Security 101)."
+  note:
+    en: "Joined after a half-year career break, backpacking through South East Asia."
+    de: "Eingestiegen nach einer halbjährigen Auszeit als Backpacker in Südostasien."
+
+- id: context
+  org: Context Information Security
+  url: https://www.contextis.com/
+  logo: contextis.jpg
+  place: { en: Bad Nauheim, de: Bad Nauheim }
+  from: 2017
+  to: 2019
+  role:
+    en: Junior Security Consultant (Penetration Tester)
+    de: Junior Security Consultant (Penetrationstester)
+  summary:
+    en: >-
+      21 months delivering security assurance services for some of the world's most successful
+      organisations, as team member and occasionally as team lead: web applications and web
+      services, external and internal networks, .NET and Java thick clients, CIS-aligned build and
+      configuration reviews (Windows, *nix, Cisco IOS) and tightly scoped, legally compliant
+      scenario-based attack simulations.
+    de: >-
+      21 Monate Security-Assurance-Projekte für einige der erfolgreichsten Organisationen weltweit,
+      als Teammitglied und gelegentlich als Teamleiter: Webanwendungen und Webservices, externe und
+      interne Netzwerke, .NET- und Java-Thick-Clients, CIS-orientierte Build- und
+      Konfigurationsreviews (Windows, *nix, Cisco IOS) sowie eng abgegrenzte, rechtskonforme
+      szenariobasierte Angriffssimulationen.
+
+- id: agt
+  org: AGT International
+  url: https://www.agtinternational.com/
+  logo: agt.jpg
+  place: { en: Darmstadt, de: Darmstadt }
+  from: 2015
+  to: 2017
+  role:
+    en: Student Research Assistant, R&D
+    de: Wissenschaftliche Hilfskraft, R&D
+  summary:
+    en: >-
+      Two years of research on privacy-enhancing technologies for Internet of Things applications;
+      wrote my master's thesis here (an end-to-end privacy architecture for IoT).
+    de: >-
+      Zwei Jahre Forschung zu Privacy-Enhancing Technologies für Internet-of-Things-Anwendungen;
+      hier entstand auch meine Masterarbeit (eine Ende-zu-Ende-Privacy-Architektur für das IoT).
+
+- id: sit
+  org: Fraunhofer SIT
+  url: https://www.sit.fraunhofer.de/
+  logo: sit.jpg
+  place: { en: Darmstadt, de: Darmstadt }
+  from: 2015
+  to: 2015
+  role:
+    en: Student Research Assistant, Secure Software Development
+    de: Wissenschaftliche Hilfskraft, Secure Software Development
+  summary:
+    en: "Three months improving a dashboard that visualises security issues of software projects."
+    de: "Drei Monate Weiterentwicklung eines Dashboards zur Visualisierung von Sicherheitsproblemen in Softwareprojekten."
+
+- id: kleewald
+  org: Kleewald GmbH
+  url: null
+  logo: kleewald.jpg
+  place: { en: Frankfurt am Main, de: Frankfurt am Main }
+  from: 2013
+  to: 2014
+  role:
+    en: Web Developer
+    de: Webentwickler
+  summary:
+    en: "Eleven months at a start-up building web applications for the finance and legal domains (PHP, HTML5, CSS3, jQuery, MySQL)."
+    de: "Elf Monate in einem Start-up: Webanwendungen für Finanz- und Rechtsbranche (PHP, HTML5, CSS3, jQuery, MySQL)."
+
+- id: tuv
+  org: TÜV Rheinland Taiwan
+  url: https://www.tuv.com/
+  logo: tuv.jpg
+  place: { en: Taipei, de: Taipeh }
+  from: 2013
+  to: 2013
+  role:
+    en: Software Engineering Intern
+    de: Praktikant Softwareentwicklung
+  summary:
+    en: "A 4.5-month internship between bachelor's and master's: automated RF test procedures with Agilent VEE and built a small Android marketing app."
+    de: "4,5 Monate Praktikum zwischen Bachelor und Master: Automatisierung von HF-Testabläufen mit Agilent VEE und eine kleine Android-Marketing-App."
+
+- id: univativ
+  org: Univativ GmbH
+  url: https://www.univativ.de/
+  logo: univativ.jpg
+  place: { en: Darmstadt, de: Darmstadt }
+  from: 2010
+  to: 2013
+  role:
+    en: IT Consultant
+    de: IT-Consultant
+  summary:
+    en: "Alongside my studies: several small projects as IT consultant and web developer, e.g. for Merck KGaA."
+    de: "Studienbegleitend: mehrere kleine Projekte als IT-Consultant und Webentwickler, u. a. für Merck KGaA."
+
+- id: stuwe
+  org: Studierendenwerk Mainz
+  url: https://www.studierendenwerk-mainz.de/
+  logo: stuwe_m.jpg
+  place: { en: Mainz, de: Mainz }
+  from: 2009
+  to: 2010
+  role:
+    en: IT Administrator
+    de: IT-Administrator
+  summary:
+    en: "Four months between civil service and university: network expansion, hardware and software roll-outs, POS system maintenance."
+    de: "Vier Monate zwischen Zivildienst und Studium: Netzwerkausbau, Hard- und Software-Rollouts, Wartung von Kassensystemen."

@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="wrap page">
+  <header class="page-head">
+    <p class="eyebrow mono">~/work</p>
+    <h1 data-decode>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+  </header>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  {{- $featured := where .Pages "Params.featured" true }}
+  {{- $rest := where .Pages "Params.featured" "!=" true }}
+  {{- with $featured }}
+  <div class="feature-list">{{ range . }}{{ partial "project-card.html" (dict "page" . "big" true) }}{{ end }}</div>
+  {{- end }}
+  {{- with $rest }}
+  <h2 class="group-title">{{ i18n "archive" }}</h2>
+  <div class="project-grid">{{ range .ByDate.Reverse }}{{ partial "project-card.html" (dict "page" .) }}{{ end }}</div>
+  {{- end }}
+</section>
+{{ end }}

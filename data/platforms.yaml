@@ -1,0 +1,38 @@
+# Cloud & container platforms covered by reviews. Spellings normalised — confirm "Kubermatic KKP" / "SAP Kubernikus".
+groups:
+  - id: public
+    label: { en: Public cloud, de: Public Cloud }
+    kind: cloud
+    items: [AWS, Azure, Google Cloud, Alibaba Cloud, IBM Cloud]
+  - id: private
+    label: { en: Private & sovereign cloud, de: Private & souveräne Cloud }
+    kind: cloud
+    items: [OpenStack, SAP Converged Cloud, Cloud Foundry]
+  - id: kubernetes
+    label: { en: Kubernetes, managed & distributions, de: "Kubernetes: Managed & Distributionen" }
+    kind: k8s
+    items: [EKS, AKS, GKE, OpenShift, Rancher, Gardener, Kubermatic KKP, SAP Kubernikus]
+more: { en: "… and more", de: "… und weitere" }
+
+reviews:
+  - id: cloud-account
+    title: { en: Cloud account reviews, de: Cloud-Account-Reviews }
+    text:
+      en: "How a tenant, subscription or organisation is set up: who can do what, what's exposed to the internet, whether anyone would notice an attack, how keys are handled, and which guardrails are actually enforced."
+      de: "Wie ein Tenant, eine Subscription oder eine Organisation aufgesetzt ist: Wer darf was, was hängt offen im Internet, würde jemand einen Angriff bemerken, wie werden Schlüssel verwaltet und welche Guardrails greifen wirklich."
+  - id: container-platform
+    title: { en: Container platform reviews, de: Container-Plattform-Reviews }
+    text:
+      en: "Kubernetes and PaaS clusters, checked for RBAC, how well tenants are separated, admission control, workload isolation, node and control-plane hardening, and the supply chain."
+      de: "Kubernetes- und PaaS-Cluster, geprüft auf RBAC, wie gut Mandanten getrennt sind, Admission Control, Workload-Isolation, Härtung von Nodes und Control Plane und die Supply Chain."
+  - id: red-team
+    title: { en: Scenario-based red teaming, de: Szenariobasiertes Red Teaming }
+    text:
+      en: "I've led red-team assessments against cloud and container platforms with realistic attacker goals and a tight scope. The aim is always results the team can actually fix."
+      de: "Ich habe Red-Team-Assessments gegen Cloud- und Container-Plattformen geleitet, mit realistischen Angreiferzielen und klarem Rahmen. Ziel sind immer Ergebnisse, die das Team auch wirklich beheben kann."
+  - id: teaching
+    title: { en: Teaching, de: Lehre }
+    text:
+      en: "Together with Sven Nobis I teach Offensive Kubernetes Security 101 at TROOPERS and as an open training with HM Training Solutions."
+      de: "Mit Sven Nobis gebe ich Offensive Kubernetes Security 101 bei TROOPERS und als offene Schulung bei HM Training Solutions."
+    link: /teaching/

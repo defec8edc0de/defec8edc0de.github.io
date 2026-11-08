@@ -1,0 +1,14 @@
+{{ define "main" }}
+<section class="wrap page">
+  <header class="page-head"><p class="eyebrow mono">{{ i18n "tags" }}</p><h1>#{{ .Title }}</h1></header>
+  <ol class="post-list" role="list">
+    {{- range .Pages }}
+    <li class="post-item">
+      <p class="post-meta mono"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time> · {{ .Section }}</p>
+      <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p class="post-summary">{{ .Description | default .Summary | plainify | truncate 220 }}</p>
+    </li>
+    {{- end }}
+  </ol>
+</section>
+{{ end }}

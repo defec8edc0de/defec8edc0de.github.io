@@ -1,0 +1,91 @@
+# Single source of design tokens. Emitted as CSS custom properties by assets/css/tokens.css.
+# `noir` mirrors the vault's Cyber palette (tw-split: plugin/src/palette-cyber.tid) — keep them in sync.
+# Contrast targets: body text >= 7:1, UI text >= 4.5:1 (checked by scripts/contrast.py).
+
+noir:
+  scheme: dark
+  bg: "#0a141e"            # page
+  bg-deep: "#060d14"       # gradient end
+  bg-glow: "#12293c"       # gradient start (hero / page glow)
+  surface: "#0f1c28"       # cards
+  surface-2: "#142533"     # raised / hover
+  code-bg: "#0c1822"
+  border: "#1f3446"
+  border-strong: "#28576c"
+  text: "#c3d0d8"          # body
+  text-strong: "#e6edf2"   # headings
+  muted: "#8fa3af"         # metadata only
+  link: "#7cc6d9"
+  link-visited: "#a9b8f0"
+  accent: "#fec503"        # amber
+  accent-text: "#fec503"   # amber used as text (passes on navy)
+  accent-soft: "rgba(254,197,3,.12)"
+  on-accent: "#06101a"
+  cyan: "#249EBD"
+  cyan-soft: "rgba(36,158,189,.14)"
+  lime: "#B4FF00"
+  danger: "#ff7b72"
+  selection-bg: "#fec503"
+  selection-fg: "#06101a"
+  grid: "rgba(99,164,181,.045)"
+  glyph: "rgba(99,164,181,.55)"
+  glyph-hot: "#fec503"
+  shadow: "0 1px 0 rgba(255,255,255,.03) inset, 0 12px 32px -18px rgba(0,0,0,.8)"
+  syn-kw: "#fec503"
+  syn-str: "#b5e06a"
+  syn-com: "#7f95a3"
+  syn-fn: "#7cc6d9"
+  syn-num: "#f2a65e"
+  syn-type: "#c9b0ff"
+  syn-var: "#e6edf2"
+  syn-op: "#a9bcc8"
+  syn-err: "#ff7b72"
+
+daylight:
+  scheme: light
+  bg: "#ffffff"
+  bg-deep: "#ffffff"
+  bg-glow: "#f6f8fa"
+  surface: "#ffffff"
+  surface-2: "#f6f8fa"
+  code-bg: "#f6f8fa"
+  border: "#d1d9e0"
+  border-strong: "#b7c1cb"
+  text: "#1f2328"
+  text-strong: "#1f2328"
+  muted: "#59636e"
+  link: "#0969da"
+  link-visited: "#8250df"
+  accent: "#bf8700"        # decorative amber (borders, markers) — never body text
+  accent-text: "#9a6700"   # amber as text, AA on white
+  accent-soft: "#fff8c5"
+  on-accent: "#1f2328"
+  cyan: "#0969da"
+  cyan-soft: "#ddf4ff"
+  lime: "#1a7f37"
+  danger: "#cf222e"
+  selection-bg: "#fff8c5"
+  selection-fg: "#1f2328"
+  grid: "rgba(31,35,40,.035)"
+  glyph: "rgba(31,35,40,.16)"
+  glyph-hot: "#9a6700"
+  shadow: "0 1px 0 rgba(31,35,40,.04), 0 8px 24px -16px rgba(31,35,40,.18)"
+  syn-kw: "#cf222e"
+  syn-str: "#0a3069"
+  syn-com: "#59636e"
+  syn-fn: "#8250df"
+  syn-num: "#0550ae"
+  syn-type: "#953800"
+  syn-var: "#1f2328"
+  syn-op: "#1f2328"
+  syn-err: "#82071e"
+
+shared:
+  font-sans: '"Atkinson Hyperlegible Next", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif'
+  font-mono: '"JetBrains Mono", ui-monospace, "Cascadia Mono", "SFMono-Regular", Consolas, monospace'
+  radius: "10px"
+  radius-sm: "6px"
+  measure: "68ch"
+  wide: "72rem"
+  gutter: "clamp(1rem, 4vw, 2.5rem)"
+  grid-size: "44px"

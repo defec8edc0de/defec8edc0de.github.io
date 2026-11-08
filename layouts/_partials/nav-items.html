@@ -1,0 +1,18 @@
+{{- /* Returns the main navigation as a slice of dicts {label, url, active}. */ -}}
+{{- $cur := . -}}
+{{- $items := slice -}}
+{{- range $it := slice
+  (dict "path" "/about" "key" "nav_about")
+  (dict "path" "/projects" "key" "nav_work")
+  (dict "path" "/resume" "key" "nav_resume")
+  (dict "path" "/blog" "key" "nav_writing")
+  (dict "path" "/teaching" "key" "nav_teaching")
+  (dict "path" "/publications" "key" "nav_publications")
+  (dict "path" "/contact" "key" "nav_contact")
+-}}
+  {{- with site.GetPage $it.path -}}
+    {{- $active := or (eq $cur.RelPermalink .RelPermalink) ($cur.IsDescendant .) -}}
+    {{- $items = $items | append (dict "label" (i18n $it.key) "url" .RelPermalink "active" $active) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $items -}}

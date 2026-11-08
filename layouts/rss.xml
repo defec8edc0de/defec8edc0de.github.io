@@ -1,0 +1,30 @@
+{{- $pages := slice -}}
+{{- if .IsHome -}}{{- $pages = where site.RegularPages "Section" "in" (slice "blog" "projects") -}}{{- else -}}{{- $pages = .RegularPages -}}{{- end -}}
+{{- $pages = where $pages "Layout" "!=" "honeypot" -}}
+{{- $limit := site.Config.Services.RSS.Limit -}}
+{{- if ge $limit 1 }}{{ $pages = $pages | first $limit }}{{ end -}}
+{{- $desc := site.Params.description -}}
+{{- with partial "canary/pick.html" (dict "vector" "feed" "page" "rss+search") }}{{ $desc = printf "%s %s" $desc . }}{{ end -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ $desc }}</description>
+    <language>{{ site.Language.Locale }}</language>
+    <copyright>© {{ now.Year }} {{ site.Params.author }}</copyright>
+    {{- with $pages }}<lastBuildDate>{{ (index . 0).Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}
+    {{- with .OutputFormats.Get "RSS" }}
+    {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
+    {{- end }}
+    {{- range $pages }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ .Description | default .Summary | plainify | transform.XMLEscape | safeHTML }}</description>
+    </item>
+    {{- end }}
+  </channel>
+</rss>

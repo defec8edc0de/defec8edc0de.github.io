@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ site.Language.Locale }}" data-day-start="{{ site.Params.dayStart }}" data-day-end="{{ site.Params.dayEnd }}">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body class="kind-{{ .Kind }}{{ with .Section }} section-{{ . }}{{ end }}{{ with .Layout }} layout-{{ . }}{{ end }}">
+<a class="skip-link" href="#main">{{ i18n "skip" }}</a>
+{{ partial "header.html" . }}
+<main id="main" tabindex="-1">
+{{ block "main" . }}{{ end }}
+</main>
+{{ partial "footer.html" . }}
+{{ partial "cmdk.html" . }}
+{{ partial "canary/body.html" . }}
+{{ partial "scripts.html" . }}
+</body>
+</html>

@@ -1,0 +1,30 @@
+{{ define "main" }}
+{{- $e := site.Params.email }}
+<article class="wrap page">
+  <header class="page-head">
+    <p class="eyebrow mono">~/contact</p>
+    <h1 data-decode>{{ .Title }}</h1>
+    {{ with .Description }}<p class="lead">{{ . }}</p>{{ end }}
+  </header>
+  <div class="contact-grid">
+    <section class="card contact-card" aria-labelledby="c-mail">
+      <h2 id="c-mail" class="card-title">{{ i18n "contact_email" }}</h2>
+      {{- /* No mailto: and no address in the HTML. Parts are base64-encoded and assembled on click by site.js. */}}
+      <p data-email-slot>
+        <button type="button" class="btn btn-primary" data-email-reveal data-u="{{ base64Encode $e.user }}" data-d="{{ base64Encode $e.domain }}">{{ i18n "contact_email_reveal" }}</button>
+      </p>
+      <noscript><p class="mono">{{ replace $e.user "." " (dot) " }} (at) {{ replace $e.domain "." " (dot) " }}</p></noscript>
+      <p class="mono muted">{{ i18n "contact_pgp" }}: <a href="{{ site.Params.pgp.file }}">{{ site.Params.pgp.fingerprint }}</a></p>
+    </section>
+    <section class="card contact-card" aria-labelledby="c-profiles">
+      <h2 id="c-profiles" class="card-title">{{ i18n "contact_profiles" }}</h2>
+      <ul class="profile-list" role="list">
+        {{- range hugo.Data.socials }}
+        <li><a href="{{ .url }}" rel="me noopener noreferrer"><span>{{ .label }}</span><span class="mono muted">{{ .handle }}</span></a></li>
+        {{- end }}
+      </ul>
+    </section>
+  </div>
+  {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+</article>
+{{ end }}

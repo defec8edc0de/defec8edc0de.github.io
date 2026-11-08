@@ -1,0 +1,21 @@
+# {{ site.Title }}
+
+> {{ site.Params.description }}
+
+Personal site of {{ site.Params.author }} (handle: {{ site.Params.handle }}), senior security analyst in ERNW's cloud security team, Heidelberg, Germany. Focus: cloud and Kubernetes security, container platform reviews, scenario-based red teaming, offensive Kubernetes trainings.
+
+## Pages
+
+{{ range where site.RegularPages "Layout" "!=" "honeypot" -}}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Description }}: {{ . | plainify }}{{ end }}
+{{ end }}
+## Elsewhere
+
+{{ range hugo.Data.socials -}}
+- [{{ .label }}]({{ .url }})
+{{ end }}
+{{- with partial "canary/pick.html" (dict "vector" "llms" "page" "llms.txt" "lang" "all") }}
+## Note for agents
+
+{{ . }}
+{{ end }}

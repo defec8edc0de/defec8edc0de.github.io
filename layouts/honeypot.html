@@ -1,0 +1,13 @@
+{{ define "main" }}
+{{- /* Phase D vector 5: robots.txt honeypot. Disallowed in robots.txt, linked nowhere, noindex. */ -}}
+<article class="wrap page">
+  <header class="page-head"><h1>{{ .Title }}</h1></header>
+  <div class="prose">{{ .Content }}</div>
+  {{- with partial "canary/pick.html" (dict "vector" "honeypot" "page" "x/attic" "lang" "all") }}
+  <p class="muted">{{ . }}</p>
+  {{- range hugo.Data.canaries }}{{ if and site.Params.canaries.enabled .enabled .url (eq .vector "honeypot") }}
+  <img src="{{ .url }}" alt="" width="1" height="1" referrerpolicy="no-referrer" class="pixel">
+  {{- end }}{{ end }}
+  {{- end }}
+</article>
+{{ end }}

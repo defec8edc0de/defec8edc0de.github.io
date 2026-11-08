@@ -1,0 +1,8 @@
+{{- /* Phase D vector 1: invisible Unicode tag characters (U+E0020..U+E007E), mapped from data/tagmap.json. */ -}}
+{{- $text := partial "canary/pick.html" (dict "vector" "tags" "page" .) -}}
+{{- with $text -}}
+  {{- $m := hugo.Data.tagmap.map -}}
+  {{- $s := "" -}}
+  {{- range split . "" -}}{{- $s = printf "%s%s" $s (index $m . | default "") -}}{{- end -}}
+  {{- $s -}}
+{{- end -}}

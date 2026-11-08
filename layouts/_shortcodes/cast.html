@@ -1,0 +1,30 @@
+{{- /*
+  Asciinema cast, self-hosted player (static/vendor/asciinema-player/<ver>/), lazy-loaded by assets/js/cast.js.
+  Usage: {{< cast src="demo.cast" title="…" cols=100 rows=28 idle=1.5 speed=1.2 poster="npt:0:04" >}}
+         Optional inner content = transcript (shown in a <details>), also the no-JS fallback.
+  The page CSP gets 'wasm-unsafe-eval' automatically (layouts/_partials/csp.html).
+*/ -}}
+{{- $ver := "3.17.0" -}}
+{{- $src := .Get "src" -}}
+{{- $res := .Page.Resources.Get $src -}}
+{{- if not $res }}{{ errorf "cast: %q not found in page bundle %s" $src .Page.File.Path }}{{ end -}}
+{{- $title := .Get "title" | default (i18n "cast_play") -}}
+<figure class="cast" data-cast
+  data-src="{{ $res.RelPermalink }}"
+  data-player-js="/vendor/asciinema-player/{{ $ver }}/asciinema-player.min.js"
+  data-player-css="/vendor/asciinema-player/{{ $ver }}/asciinema-player.css"
+  data-cols="{{ .Get "cols" | default 100 }}" data-rows="{{ .Get "rows" | default 26 }}"
+  data-idle="{{ .Get "idle" | default 1.5 }}" data-speed="{{ .Get "speed" | default 1 }}"
+  data-poster="{{ .Get "poster" | default "npt:0:03" | safeURL }}">
+  <div class="cast-frame">
+    <div class="term-bar" aria-hidden="true"><span class="term-dots"><i></i><i></i><i></i></span><span class="mono">{{ $title }}</span></div>
+    <div class="cast-stage" data-cast-stage role="region" aria-label="{{ $title }}">
+      <button type="button" class="cast-play" data-cast-play hidden><span aria-hidden="true">▶</span> {{ i18n "cast_play" }}</button>
+      <noscript><p class="mono muted cast-noscript">{{ i18n "cast_play" }}: <a href="{{ $res.RelPermalink }}">{{ path.Base $src }}</a></p></noscript>
+    </div>
+  </div>
+  {{- with .Inner }}
+  <details class="cast-transcript"><summary class="mono">{{ i18n "cast_transcript" }}</summary><pre><code>{{ . | strings.TrimSpace }}</code></pre></details>
+  {{- end }}
+  {{- with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

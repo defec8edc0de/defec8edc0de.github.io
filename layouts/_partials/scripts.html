@@ -1,0 +1,11 @@
+{{- $opts := dict "minify" true "target" "es2019" -}}
+{{- $site := resources.Get "js/site.js" | js.Build $opts | fingerprint "sha384" }}
+<script src="{{ $site.RelPermalink }}" integrity="{{ $site.Data.Integrity }}" defer></script>
+{{- if .IsHome }}
+{{- $hero := resources.Get "js/hero.js" | js.Build $opts | fingerprint "sha384" }}
+<script src="{{ $hero.RelPermalink }}" integrity="{{ $hero.Data.Integrity }}" defer></script>
+{{- end }}
+{{- if .HasShortcode "cast" }}
+{{- $cast := resources.Get "js/cast.js" | js.Build $opts | fingerprint "sha384" }}
+<script src="{{ $cast.RelPermalink }}" integrity="{{ $cast.Data.Integrity }}" defer></script>
+{{- end }}

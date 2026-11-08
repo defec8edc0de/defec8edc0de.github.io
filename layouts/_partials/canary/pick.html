@@ -1,0 +1,14 @@
+{{- /*
+  Phase D: returns the armed canary prompt (with {url} substituted) for dict {vector, page, lang?}, or "".
+  Nothing is returned unless params.canaries.enabled is true AND the entry is enabled AND has a url.
+*/ -}}
+{{- $out := "" -}}
+{{- if site.Params.canaries.enabled -}}
+  {{- $lang := .lang | default site.Language.Lang -}}
+  {{- range hugo.Data.canaries -}}
+    {{- if and (not $out) .enabled .url (eq .vector $.vector) (in (slice $lang "all") .lang) (in (slice $.page "all") .page) -}}
+      {{- $out = replace .prompt "{url}" .url -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $out -}}

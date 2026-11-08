@@ -1,0 +1,4 @@
+{{- /* Phase D vector 2: visually hidden DOM text, skipped by screen readers (aria-hidden). */ -}}
+{{- with partial "canary/pick.html" (dict "vector" "hidden" "page" "all") -}}
+<span class="sr-trap" aria-hidden="true">{{ . }}</span>
+{{- end -}}

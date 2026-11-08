@@ -1,0 +1,22 @@
+{{- /* Blog posts (current language) merged with external posts (data/external_posts.yaml), newest first. Args: limit (0 = all). */ -}}
+{{- $items := slice -}}
+{{- range where site.RegularPages "Section" "blog" -}}
+  {{- $items = $items | append (dict "title" .Title "url" .RelPermalink "date" .Date "summary" (.Description | default .Summary | plainify | replaceRE `\s#(\s|$)` " ") "external" false "site" "" "minutes" .ReadingTime "tags" .Params.tags) -}}
+{{- end -}}
+{{- range hugo.Data.external_posts.posts -}}
+  {{- $items = $items | append (dict "title" .title "url" .url "date" (time.AsTime .date) "summary" (partial "tr.html" .summary) "external" true "site" .site "minutes" 0 "tags" .tags) -}}
+{{- end -}}
+{{- $items = sort $items "date" "desc" -}}
+{{- with .limit }}{{ $items = first . $items }}{{ end -}}
+<ol class="post-list" role="list">
+  {{- range $items }}
+  <li class="post-item{{ if .external }} is-external{{ end }}" data-reveal>
+    <p class="post-meta mono">
+      <time datetime="{{ .date.Format "2006-01-02" }}">{{ .date | time.Format ":date_medium" }}</time>
+      {{- if .external }} · <span class="badge">{{ i18n "external" }}</span> {{ i18n "on_site" (dict "Site" .site) }}{{ else if .minutes }} · {{ i18n "reading_time" (dict "Count" .minutes) }}{{ end }}
+    </p>
+    <h3 class="post-title"><a href="{{ .url }}"{{ if .external }} rel="noopener noreferrer"{{ end }}>{{ .title }}{{ if .external }} <span class="ext" aria-hidden="true">↗</span>{{ end }}</a></h3>
+    {{- with .summary }}<p class="post-summary">{{ . | truncate 240 }}</p>{{ end }}
+  </li>
+  {{- end }}
+</ol>

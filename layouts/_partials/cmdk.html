@@ -1,0 +1,26 @@
+{{- $lt := partial "lang-target.html" . -}}
+{{- $idx := "" -}}{{- with site.Home.OutputFormats.Get "json" -}}{{- $idx = .RelPermalink -}}{{- end -}}
+<dialog id="cmdk" class="cmdk" aria-label="{{ i18n "search_open" }}"
+  data-index="{{ $idx }}"
+  data-vault="{{ site.Params.vaultURL }}"
+  data-lang-url="{{ $lt.url }}"
+  data-group-commands="{{ i18n "cmd_group_commands" }}"
+  data-group-pages="{{ i18n "cmd_group_pages" }}"
+  data-empty="{{ i18n "search_empty" }}">
+  <div class="cmdk-box">
+    <div class="cmdk-input-row">
+      <span class="mono cmdk-prompt" aria-hidden="true">&gt;</span>
+      <input class="cmdk-input" type="text" role="combobox" aria-expanded="true" aria-controls="cmdk-list" aria-autocomplete="list"
+        autocomplete="off" spellcheck="false" placeholder="{{ i18n "search_placeholder" }}" aria-label="{{ i18n "search_placeholder" }}">
+      <button type="button" class="tool" data-dialog-close aria-label="{{ i18n "close" }}"><kbd>esc</kbd></button>
+    </div>
+    <ul id="cmdk-list" class="cmdk-list" role="listbox" aria-label="{{ i18n "search_open" }}">
+      <li role="option" class="cmdk-item" data-cmd="unlock" data-label="{{ i18n "cmd_unlock" }} vault tresor tw">{{ i18n "cmd_unlock" }}</li>
+      <li role="option" class="cmdk-item" data-cmd="theme-auto" data-label="{{ i18n "cmd_theme_auto" }} theme auto">{{ i18n "cmd_theme_auto" }}</li>
+      <li role="option" class="cmdk-item" data-cmd="theme-day" data-label="{{ i18n "cmd_theme_day" }} theme day light">{{ i18n "cmd_theme_day" }}</li>
+      <li role="option" class="cmdk-item" data-cmd="theme-night" data-label="{{ i18n "cmd_theme_night" }} theme night dark">{{ i18n "cmd_theme_night" }}</li>
+      <li role="option" class="cmdk-item" data-cmd="lang" data-label="{{ i18n "cmd_lang" }} language sprache">{{ i18n "cmd_lang" }}</li>
+    </ul>
+    <p class="cmdk-hint mono muted">{{ i18n "search_hint" }}</p>
+  </div>
+</dialog>

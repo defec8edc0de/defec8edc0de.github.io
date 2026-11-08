@@ -1,0 +1,6 @@
+# Found something on defec8edc0.de? Thank you — please tell me.
+Contact: https://defec8edc0.de/contact/
+Encryption: https://defec8edc0.de/assets/files/sebastian.funke.mail-0x7347FFA9-pub.asc
+Preferred-Languages: en, de
+Canonical: https://defec8edc0.de/.well-known/security.txt
+Expires: 2027-11-01T00:00:00.000Z
