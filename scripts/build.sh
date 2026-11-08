@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 HUGO="${HUGO:-hugo}"
 
-scripts/check-content.sh
+bash scripts/check-content.sh
 
 rm -rf public
 "$HUGO" --gc --minify --panicOnWarning --printI18nWarnings --printPathWarnings
