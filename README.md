@@ -54,7 +54,7 @@ When you edit a note tagged `publish:blog`, a **Blog post** panel appears below 
 
 ### Images, links, languages
 
-- **Images:** import a PNG, JPEG or WebP into the vault (drag and drop) and use it in the text as `![alt text](#Image title)` or `[img[Image title]]`. It's published next to the post automatically. Links to external images are refused, because the site only shows its own images.
+- **Images and other files:** in the editor, press the **paperclip** (*Attach file*, or **Ctrl+Alt+A**) and pick files from your disk. Each file becomes its own encrypted note, and a link is inserted at the cursor: `[img[photo.png]]` for images, `[[report.pdf]]` for anything else. Images used in a post are published next to it automatically, with the file name as alt text unless you write `[img[alt text|photo.png]]`. Links to other files become plain text in the post. Links to external images are refused, because the site only shows its own images.
 - **Links:** `[[Other note]]` becomes a link if that note is published as well. Otherwise it's plain text, so private titles only appear if you wrote them yourself. Normal web links work as usual.
 - **German and English versions:** use two notes with the same *URL* slug and set *Language* to Deutsch on the German one. The site links them through the language switch.
 
